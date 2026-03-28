@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: 0.14 0.028 243;
+    --foreground: 0.96 0.015 243;
+    --card: 0.17 0.032 240;
+    --card-foreground: 0.96 0.015 243;
+    --popover: 0.17 0.032 240;
+    --popover-foreground: 0.96 0.015 243;
+    --primary: 0.82 0.18 155;
+    --primary-foreground: 0.1 0.02 155;
+    --secondary: 0.76 0.1 75;
+    --secondary-foreground: 0.1 0.02 75;
+    --muted: 0.2 0.025 240;
+    --muted-foreground: 0.67 0.04 220;
+    --accent: 0.82 0.18 155;
+    --accent-foreground: 0.1 0.02 155;
+    --destructive: 0.62 0.22 27;
+    --destructive-foreground: 0.96 0.015 243;
+    --border: 0.26 0.03 240;
+    --input: 0.22 0.025 240;
+    --ring: 0.82 0.18 155;
+    --chart-1: 0.82 0.18 155;
+    --chart-2: 0.76 0.1 75;
+    --chart-3: 0.62 0.22 27;
+    --chart-4: 0.67 0.04 220;
+    --chart-5: 0.55 0.12 265;
+    --sidebar: 0.17 0.032 240;
+    --sidebar-foreground: 0.96 0.015 243;
+    --sidebar-primary: 0.82 0.18 155;
+    --sidebar-primary-foreground: 0.1 0.02 155;
+    --sidebar-accent: 0.2 0.025 240;
+    --sidebar-accent-foreground: 0.96 0.015 243;
+    --sidebar-border: 0.26 0.03 240;
+    --sidebar-ring: 0.82 0.18 155;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Bricolage Grotesque", "Inter", sans-serif;
+  }
+}
+
+@layer utilities {
+  .glow-green {
+    box-shadow: 0 0 20px oklch(0.82 0.18 155 / 0.35), 0 0 40px
+      oklch(0.82 0.18 155 / 0.15);
+  }
+  .glow-gold {
+    box-shadow: 0 0 20px oklch(0.76 0.1 75 / 0.35), 0 0 40px
+      oklch(0.76 0.1 75 / 0.15);
+  }
+  .glow-red {
+    box-shadow: 0 0 20px oklch(0.62 0.22 27 / 0.35), 0 0 40px
+      oklch(0.62 0.22 27 / 0.15);
+  }
+  .grid-overlay {
+    background-image: linear-gradient(
+        oklch(0.96 0.015 243 / 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, oklch(0.96 0.015 243 / 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .text-glow-green {
+    text-shadow: 0 0 12px oklch(0.82 0.18 155 / 0.8), 0 0 30px
+      oklch(0.82 0.18 155 / 0.4);
+  }
+  .text-glow-gold {
+    text-shadow: 0 0 12px oklch(0.76 0.1 75 / 0.8), 0 0 30px
+      oklch(0.76 0.1 75 / 0.4);
+  }
+  .text-glow-red {
+    text-shadow: 0 0 12px oklch(0.62 0.22 27 / 0.8), 0 0 30px
+      oklch(0.62 0.22 27 / 0.4);
+  }
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+  .number-flip {
+    animation: number-flip 0.3s ease-out;
+  }
+  @keyframes number-flip {
+    0% {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
